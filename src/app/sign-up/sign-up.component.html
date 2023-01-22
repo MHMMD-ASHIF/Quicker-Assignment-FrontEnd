@@ -1,0 +1,81 @@
+<style>
+    .pop-up {
+        z-index: 99;
+        position: absolute;
+        background-color: #fff;
+        height: max-content;
+        background-color: rgb(236, 239, 245);
+        width: max-content;
+        padding: 10px 10px 10px 10px;
+        line-height: 1.6;
+        border-radius: 5px;
+        font-size: 13px;
+        color: #8c8a8a;
+        margin-top: -15px;
+        box-shadow: 1px 2px 2px #6e6e6e69;
+        display: none;
+        z-index: 2;
+    }
+
+    .active {
+        display: block;
+        transition: all 300ms ease-in-out;
+        height: max-content;
+    }
+</style>
+<section class="login">
+    <div class="background">
+        <div class="imgIcon">
+            <img src="../../assets/qwqer2.png">
+        </div>
+        <div class="loginForm">
+            <div class="logo">
+                <img src="../../assets/qwqer-logo.png" alt="icon">
+            </div>
+            <div class="sinIn">
+                <div class="title">
+                    <h2>Create an account</h2>
+                </div>
+                <div class="body">
+                    <div class="user">
+                        <p>Already have an account? <a routerLink="..">Sign in</a></p>
+                    </div>
+                    <div class="fields">
+                        <form [formGroup]="formGroup" (ngSubmit)="signUpProcess()">
+                            <label id="username">Email</label><br>
+                            <input for="username" type="text" class="input1" required autocomplete="off" formControlName="email" ng-required="true" ><br><br>
+                            <label id="name">Full Name</label><br>
+                            <input for="name" type="text" class="input1" required autocomplete="off" formControlName="first_name"><br><br>
+                            <label id="email">Phone Number</label><br>
+                            <input for="email" type="text" class="input1" required autocomplete="off" formControlName="phoneNumber"><br><br>
+                            <label id="password">Password</label><br>
+                            <input for="password" type="password" class="input1" required autocomplete="off" formControlName="password" #pass (keyup)="password(pass.value)"><br><br>
+                            <div class="passwordList">
+                                <label id="c_password">Confirm Password</label><br>
+                                <input for="c_password" type="password" class="input1" required autocomplete="off" #pass2 (keyup)="c_password(pass2.value)" 
+                                    id="pp">
+                            </div>
+                             <p *ngIf="message" style="font-size: 12px;color: red;">password does't match<br>password must contain 8 characters</p>
+                            <p *ngIf="message_empty" style="font-size: 12px;color: red;">Email already in taken</p><br>
+
+
+                   
+                            <input type="submit" value="Continue" class="btn" style="font-size: 12px;">
+                        </form>
+                    </div>
+                  
+                </div>
+                                            
+
+            </div>
+            
+        </div>
+        
+
+
+    </div>
+</section>
+
+
+
+<router-outlet></router-outlet>

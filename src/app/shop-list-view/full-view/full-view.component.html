@@ -1,0 +1,111 @@
+
+<style>
+    input,textarea{
+        background-color: transparent;
+        width: 200px;
+        border: 0;
+        pointer-events: none;
+        resize: none;
+    }
+    .pp{
+        width: 50%;
+    }
+    
+    table{
+      
+        width: 100%;
+    }
+</style>
+<section>
+  
+ 
+    <div class="main" >
+        <div class="card">
+            <div class="innerCard" >
+                <div class="cardContents">
+                    <div class="head">
+                        <img [src]=ShopImagePath  alt="img">
+                    </div>
+                    <div class="body">
+
+                        <table>
+                            <tr>
+                                <td class="pp">Shop Id</td>
+                                <td class="space" >
+                                    <input type="text" class="form-control" [(ngModel)]="ShopId">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="pp">Name</td>
+                                <td class="space" >
+                                    <input type="text" class="form-control" [(ngModel)]="ShopName">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="pp">Address</td>
+                                <td class="space"><textarea type="text" class="form-control" [(ngModel)]="ShopAddress" style="overflow: hidden;"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="pp">City</td>
+                                <td class="space" ><input type="text" class="form-control" [(ngModel)]="ShopCity"></td>
+                            </tr>
+                            <tr>
+                                <td class="pp">Phone</td>
+                                <td class="space"><input type="text" class="form-control" [(ngModel)]="ShopPhone"></td>
+                            </tr>
+                        </table>
+
+                    </div>
+                    <div class="footer">
+                        <!-- <div class="btnEdit">
+                            <a class="edit" routerLink="/edit"><button>Close</button></a>
+                        </div> -->
+                    
+                    </div>
+
+
+                </div>
+            
+            </div>
+
+        </div>
+    </div>
+
+
+
+</section>
+ 
+ <!-- <div class="d-flex flex-row bd-highlight mb-3">
+    <div class="form-form row" style="width: 60%;">
+        <label class="col-sm-2 col-form-labe">Name</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" 
+            placeholder="Enter Shop Name">
+        </div>
+        <label class="col-sm-2 col-form-labe">Address</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control"
+            placeholder="Enter Shop Address">
+        </div>
+        <label class="col-sm-2 col-form-labe">City</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control"
+            placeholder="Enter Shop City">
+        </div>
+        <label class="col-sm-2 col-form-labe">Phone</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" 
+            placeholder="Enter Shop Phone number">
+        </div>
+    
+    </div>
+    <div class="ml-3 bd-highlight" style=width:40%>
+        <img [src]=ShopImagePath height="250px" width="200px">
+        <input type="file" (change)="uploadPhoto($event)" class="mt-2">
+    </div> 
+    </div>
+    
+
+     -->
+

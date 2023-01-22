@@ -1,0 +1,88 @@
+<style>
+     
+    .divTwo{
+        margin-left: 50px;
+        margin-top: 20px;
+        width: 30%;
+    }
+    .divTwo img{
+        width: 210px;
+        height: 205px;
+    }
+    label, input,textarea{
+        margin-top: 20px;
+    }
+    .btnS{
+
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+    }
+    .btnS button{
+        width: 150px;
+    }
+    .divOne{
+        display: flex;
+    }
+    .forms{
+        width: 50%;
+    }
+    @media(max-width:550px){
+        .divOne{
+            display: block;
+        }
+        .forms{
+            width: 100%;
+        }
+        .divTwo{
+            margin-left: 0px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        .divTwo img{
+            width: 150px;
+            height: 150px;
+            
+        }
+    }
+    
+</style>
+
+<div class="bd-highlight  divOne">
+    <div class="form-form row forms" >
+        <label class="col-sm-2 col-form-label">Name</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" [(ngModel)]="ShopName" placeholder="Enter Shop Name">
+        </div>
+        <label class="col-sm-2 col-form-label">Address</label>
+        <div class="col-sm-10">
+            <textarea type="text" class="form-control" [(ngModel)]="ShopAddress" placeholder="Enter Shop Address"></textarea>
+        </div>
+        <label class="col-sm-2 col-form-label">City</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" [(ngModel)]="ShopCity" placeholder="Enter Shop City">
+        </div>
+        <label class="col-sm-2 col-form-label">Phone</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" [(ngModel)]="ShopPhone" placeholder="Enter Shop Phone number">
+        </div>
+
+    </div>
+    <div class="ml-3 bd-highlight divTwo">
+        <div class="second">
+            <img [src]=ShopImagePath ><br>
+        <input type="file" (change)="uploadPhoto($event)" class="mt-2" style="width: 150px;font-size: 10px;">
+        </div>
+    </div>
+</div>
+
+<div class="btnS">
+    <button (click)="addShop()" *ngIf="shop.ShopName==0" class="btn btn-primary">
+        Add
+    </button>
+    
+    <button (click)="updateShop()" *ngIf="shop.ShopName!=0" class="btn btn-primary">
+        Update
+    </button>
+</div>

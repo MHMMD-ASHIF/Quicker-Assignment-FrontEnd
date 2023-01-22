@@ -1,0 +1,140 @@
+<div >
+
+<div class="total">
+  <div class="title">
+    <h2>ShopList Management Portal</h2>
+
+  </div>
+  
+  <nav class="navbar navbar-expand-sm  navbar-dark">
+ 
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <div class="btnLogout">
+          <!-- <button routerLink="shop" class="m-1 btn btm" Button>Show ShopList</button> -->
+          
+            <button style="background-color: transparent;border: 0px; outline: 0;" title="LOGOUT" (click)="logoutUser()"><i class="fa-solid fa-right-from-bracket"></i></button>
+          </div>
+
+        
+      </li>
+    </ul>
+  </nav></div>
+
+<div class="container-fluid">
+
+  <!-- Button trigger modal -->
+
+  <div class="center">
+    <button type="button" class="btn btn-primary final" data-bs-toggle="modal" data-bs-target="#exampleModal"
+      (click)="addClick()" data-backdrop="static" data-keyboard="false">
+      Add Shop
+    </button>
+    <div class="d-flex flex-row filter">
+      <input [(ngModel)]="ShopNameFilter" class="form-control"
+      (keyup)="FilterFn()" placeholder="Filter with shop Name">
+    </div>
+  </div>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+    data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered modal-lg trans" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{ModalTitle}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+            (click)="closeClick()"></button>
+        </div>
+        <div class="modal-body">
+          <app-add-edit [shop]="shop" *ngIf="ActivateAddEditDepComp"></app-add-edit>
+
+        </div>
+        <div class="modal-body">
+          <app-full-view [shop]="shopDet" *ngIf="ActivateShop"></app-full-view>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+  <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">{{ModalTitles}}</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+        (click)="closeClick()"></button>
+    </div>
+ 
+   
+  </div>
+  
+</div>
+</div> -->
+
+
+
+
+
+
+
+  <table class="table table-stripped">
+    <thead>
+      <tr>
+        <th>
+          <!-- <div class="d-flex flex-row">
+        <input [(ngModel)]="ShopIdFilter" class="form-control"
+        (keyup)="FilterFn()" placeholder="Filter With ID">
+      </div> -->
+          Id
+        </th>
+        <th>
+
+          Name</th>
+        <th>City</th>
+        <th class="options">options</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="tr" *ngFor="let dataItem of POSTS | paginate:{
+        itemsPerPage: tableSize,
+        currentPage: page,
+        totalItems: count}; let i= index">
+        <td>{{dataItem.id}}</td>
+        <td>{{dataItem.ShopName}}</td>
+        <td>{{dataItem.ShopCity}}</td>
+
+
+        <td class="buttons">
+          <button type="button" class="btn  mr-1" data-bs-toggle="modal" data-bs-target="#exampleModal"
+            (click)="edit(dataItem)" data-backdrop="static" data-keyboard="false" title="EDIT">
+            <i class="fa-regular fa-pen-to-square"></i>
+          </button>
+          <button type="button" class="btn  mr-1" (click)="delete(dataItem)" title="DELETE">
+            <i class="fa-sharp fa-solid fa-trash"></i>
+
+          </button>
+          <button type="button" class="btn mr-1" title="VIEW" (click)="View(dataItem)" data-bs-toggle="modal"
+            data-bs-target="#exampleModal" data-backdrop="static" data-keyboard="false">
+            <i class="fa-regular fa-eye"></i> </button>
+        </td>
+
+      </tr>
+
+    </tbody>
+
+  </table>
+  <div class="page" style="text-align: center; margin-top: 20px; margin-bottom: 20px;">
+    <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)">
+    </pagination-controls>
+  </div>
+</div>
+
+
+</div>

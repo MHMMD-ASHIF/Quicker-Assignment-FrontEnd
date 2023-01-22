@@ -1,0 +1,73 @@
+   <style>
+    .googleButton{
+      width: 100%;
+      height: 100%;
+      
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+
+   </style>
+  
+  <section class="login" >
+        <div class="background">
+          <div class="imgIcon">
+            <img src="../../assets/qwqer2.png">
+          </div>
+            <div class="loginForm">
+            <div class="logo">
+              <img src="../../assets/qwqer-logo.png" alt="icon">
+            </div>
+            <div class="sinIn">
+              <div class="title">
+                <h2>Sign in</h2>
+              </div>
+              <div class="body">
+                <div class="user">
+                  <p>New User? <a routerLink="/SignUp">Create an account</a></p>
+                </div>
+                <div class="fields">
+                  <form [formGroup]="formGroup" (ngSubmit)="loginProcess()">
+                    <label id="email" >Email Address</label><br>
+                    <input for="email" type="email" class="input1" required autocomplete="off" style="letter-spacing: 1.2px;" formControlName="email">
+            
+                    <br><br>
+                    
+                    <label id="password">Password</label><br>
+                    <input for="password" type="password" class="input1" required autocomplete="off" formControlName="password"><br>
+                    <p *ngIf="message" style="font-size: 12px;color: red;">username or password Incorrect</p>
+                    <p *ngIf="message_empty" style="font-size: 12px;color: red;">Please fill the fields</p>
+
+                    <input type="submit" value="Continue" class="btn" style="font-size: 12px;">
+
+                  </form>
+                </div>
+                <div class="or">  
+                  <p>Or</p>
+                </div>
+                <div class="otherLogin">
+                  <div class="google">
+                    <asl-google-signin-button type="standard"   shape='circle'  size='large' class="googleButton" >
+                     </asl-google-signin-button> 
+
+                 
+
+                    <!-- <a (click)="signUpGoogle()"><img src="../../assets/toppng.com-google-g-logo-icon-480x480.png" alt="google">
+                      <p>Continue with Google</p></a>  -->
+                  </div>
+                  <div class="facebook">
+                    <a  (click)="signUpFacebook()"><img src="../../assets/Facebook_Logo_(2019)l.png" alt="google">
+                      <p>Continue with Facebook</p></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+      
+          
+        </div>
+      </section>
+      <router-outlet #o="outlet"></router-outlet>
